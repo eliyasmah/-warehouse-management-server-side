@@ -50,7 +50,7 @@ async function run() {
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       const updateFiled = {
-        $set: updateQuantity,
+        $set: { quantity: updateQuantity.quantity },
       };
       const result = await fruitsCollection.updateOne(
         filter,
