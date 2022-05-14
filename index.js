@@ -46,11 +46,11 @@ async function run() {
     //Update
     app.put("inventory/:id", async (req, res) => {
       const id = req.params.id;
-      const updateQuantity = req.body;
+      const update = req.body;
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       const updateFiled = {
-        $set: updateQuantity,
+        $set: update,
       };
       const result = await fruitsCollection.updateOne(
         filter,
